@@ -1,0 +1,23 @@
+import Link from "next/link";
+import { ActiveLink } from "../active-link/ActiveLink";
+
+const navItems = [
+  { path: "/about", text: "About" },
+  { path: "/contact", text: "Contact" },
+  { path: "/pricing", text: "Pricing" },
+];
+export const NavBar = () => {
+  return (
+    <nav className="flex bg-slate-500 bg-opacity-30 p-2 m-2 rounded">
+      <Link href={"/"}>
+        <span>Home</span>
+      </Link>
+
+      <div className="flex flex-1"></div>
+
+      {navItems.map((navItem) => (
+        <ActiveLink key={navItem.path} {...navItem} />
+      ))}
+    </nav>
+  );
+};
